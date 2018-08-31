@@ -46,6 +46,7 @@ namespace ADVWebAPI
                 defaults: new { mStatus = RouteParameter.Optional }
             );
 
+            //This is to get employees by gender
             config.Routes.MapHttpRoute(
                 name: "ApiByGender",
                 routeTemplate: "api/{controller}/GetEmployeesByGender/{gender}",
