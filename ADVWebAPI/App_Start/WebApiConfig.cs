@@ -53,6 +53,7 @@ namespace ADVWebAPI
                 defaults: new { gender = "All" }
             );
 
+            //This is to get employees by org level in branch 1.0
             config.Routes.MapHttpRoute(
                name: "ApiByOrgLevel",
                routeTemplate: "api/{controller}/GetEmployeesByOrgLevel/{orgLevel}",
