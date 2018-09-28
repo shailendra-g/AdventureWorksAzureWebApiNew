@@ -102,3 +102,5 @@ C:\Users\Shailu\source\repos\ADVDataModelEF\ADVWebAPI\obj\Debug\ADVWebAPI.csproj
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVWebAPI\obj\Debug\ADVWebAPI.csproj.CopyComplete
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVWebAPI\obj\Debug\ADVWebAPI.dll
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVWebAPI\obj\Debug\ADVWebAPI.pdb
+C:\Users\Shailu\source\repos\ADVDataModelEF\ADVWebAPI\bin\Swashbuckle.Core.dll
+C:\Users\Shailu\source\repos\ADVDataModelEF\ADVWebAPI\bin\WebActivatorEx.dll

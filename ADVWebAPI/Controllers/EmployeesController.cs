@@ -8,11 +8,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using ADVDataModel.Repositorys;
 using ADVDataModel;
 using ADVWebAPI.Models;
 
 namespace ADVWebAPI.Controllers
 {
+    [RoutePrefix("api/EmployeesController")]
     public class EmployeesController : ApiController
     {
         private ADV2017Entities db = new ADV2017Entities();
@@ -25,6 +27,8 @@ namespace ADVWebAPI.Controllers
         }
 
         // GET: api/Employees/5
+        [HttpGet]
+        [Route("GetEmployee")]
         public IHttpActionResult GetEmployee(int id)
         {
             Employee employee = db.Employees.Find(id);
@@ -37,6 +41,8 @@ namespace ADVWebAPI.Controllers
         }
 
         // GET: api/Employees
+        [HttpGet]
+        [Route("GetEmployees")]
         public IEnumerable<EmployeeModel> GetEmployees()
         {
             //return db.Employees;
@@ -48,6 +54,8 @@ namespace ADVWebAPI.Controllers
         //Get: api/Employees/GetEmployeesByMaritalStatus/m
         //[Route("api/employees/get/mStatus")]
         //[Route("api/employees/GetEmployeesByMaritalStatus")]
+        [HttpGet]
+        [Route("GetEmployeesByMaritalStatus")]
         public IEnumerable<EmployeeModel> GetEmployeesByMaritalStatus(string mStatus)
         {
             //return db.Employees;
@@ -66,6 +74,8 @@ namespace ADVWebAPI.Controllers
 
         //Get: api/Employees/GetEmployeesByGender/male
         //[Route("api/employees/GetEmployeesByGender")]
+        [HttpGet]
+        [Route("GetEmployeesByGender")]
         public IEnumerable<EmployeeModel> GetEmployeesByGender(string gender)
         {
             //return db.Employees;
@@ -85,6 +95,8 @@ namespace ADVWebAPI.Controllers
 
         //Get: api/Employees/GetEmployeesByGender/male
         //[Route("api/employees/GetEmployeesByGender")]
+        [HttpGet]
+        [Route("GetEmployeesByOrgLevel")]
         public IEnumerable<EmployeeModel> GetEmployeesByOrgLevel(int? orgLevel)
         {
             //return db.Employees;
@@ -102,17 +114,14 @@ namespace ADVWebAPI.Controllers
 
 
         // PUT: api/Employees/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutEmployee(int id, Employee employee)
+        //[ResponseType(typeof(void))]
+        [HttpPost]
+        [Route("PutEmployee")]
+        public IHttpActionResult PutEmployee(Employee employee)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            if (id != employee.BusinessEntityID)
-            {
-                return BadRequest();
             }
 
             db.Entry(employee).State = EntityState.Modified;
@@ -123,7 +132,7 @@ namespace ADVWebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmployeeExists(id))
+                if (!EmployeeExists(employee.BusinessEntityID))
                 {
                     return NotFound();
                 }
@@ -137,8 +146,10 @@ namespace ADVWebAPI.Controllers
         }
 
         // POST: api/Employees
-        [ResponseType(typeof(Employee))]
-        public IHttpActionResult PostEmployee([FromBody] Employee employee)
+        //[ResponseType(typeof(Employee))]
+        [HttpPost]
+        [Route("PostEmployee")]
+        public IHttpActionResult PostEmployee(Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -167,7 +178,9 @@ namespace ADVWebAPI.Controllers
         }
 
         // DELETE: api/Employees/5
-        [ResponseType(typeof(Employee))]
+        //[ResponseType(typeof(Employee))]
+        [HttpPost]
+        [Route("DeleteEmployee")]
         public IHttpActionResult DeleteEmployee(int id)
         {
             Employee employee = db.Employees.Find(id);

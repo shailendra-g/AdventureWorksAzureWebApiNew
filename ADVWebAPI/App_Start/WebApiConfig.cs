@@ -40,33 +40,33 @@ namespace ADVWebAPI
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "ApiByStatus",
-                routeTemplate: "api/{controller}/GetEmployeesByMaritalStatus/{mStatus}",
-                defaults: new { mStatus = RouteParameter.Optional }
-            );
+           // config.Routes.MapHttpRoute(
+           //     name: "ApiByStatus",
+           //     routeTemplate: "api/{controller}/GetEmployeesByMaritalStatus/{mStatus}",
+           //     defaults: new { mStatus = RouteParameter.Optional }
+           // );
 
-            //This is to get employees by gender
-            config.Routes.MapHttpRoute(
-                name: "ApiByGender",
-                routeTemplate: "api/{controller}/GetEmployeesByGender/{gender}",
-                defaults: new { gender = "All" }
-            );
+           // //This is to get employees by gender
+           // config.Routes.MapHttpRoute(
+           //     name: "ApiByGender",
+           //     routeTemplate: "api/{controller}/GetEmployeesByGender/{gender}",
+           //     defaults: new { gender = "All" }
+           // );
 
-            //This is to get employees by org level in branch 1.0
-            config.Routes.MapHttpRoute(
-               name: "ApiByOrgLevel",
-               routeTemplate: "api/{controller}/GetEmployeesByOrgLevel/{orgLevel}",
-               defaults: new { orgLevel = RouteParameter.Optional }
-           );
+           // //This is to get employees by org level in branch 1.0
+           // config.Routes.MapHttpRoute(
+           //    name: "ApiByOrgLevel",
+           //    routeTemplate: "api/{controller}/GetEmployeesByOrgLevel/{orgLevel}",
+           //    defaults: new { orgLevel = RouteParameter.Optional }
+           //);
 
-            config.Routes.MapHttpRoute(
-                name: "ApiByAction",
-                routeTemplate: "api/{controller}/{action}",
-                defaults: new { action = "Get" }
-            );
+           // config.Routes.MapHttpRoute(
+           //     name: "ApiByAction",
+           //     routeTemplate: "api/{controller}/{action}",
+           //     defaults: new { action = "Get" }
+           // );
 
-            config.Formatters.Add(new CustomJsonFormatter());
+            //config.Formatters.Add(new CustomJsonFormatter());
 
         }
 

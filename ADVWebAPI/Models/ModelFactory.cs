@@ -51,5 +51,16 @@ namespace ADVWebAPI.Models
                  RateChangeDate = eph.RateChangeDate
             };
         }
+
+        public DepartmentModel Create(Department dep)
+        {
+            return new DepartmentModel()
+            {
+                DepartmentID = dep.DepartmentID,
+                GroupName = dep.GroupName,
+                Name = dep.Name,
+                ModifiedDate = dep.ModifiedDate
+            };
+        }
     }
 }

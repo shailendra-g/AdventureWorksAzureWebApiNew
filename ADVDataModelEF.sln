@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADVDataModel", "ADVDataMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADVWebAPI", "ADVWebAPI\ADVWebAPI.csproj", "{D39C9184-B37D-44F0-A0DE-130E39C20A46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADVDataModel.Test", "ADVDataModel.Test\ADVDataModel.Test.csproj", "{8E43D04B-D763-457E-9413-3C53AFD213E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D39C9184-B37D-44F0-A0DE-130E39C20A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D39C9184-B37D-44F0-A0DE-130E39C20A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D39C9184-B37D-44F0-A0DE-130E39C20A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E43D04B-D763-457E-9413-3C53AFD213E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E43D04B-D763-457E-9413-3C53AFD213E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E43D04B-D763-457E-9413-3C53AFD213E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E43D04B-D763-457E-9413-3C53AFD213E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

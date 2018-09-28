@@ -5,7 +5,6 @@ C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\bin\Debug\EntityFramewo
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\bin\Debug\EntityFramework.xml
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.csprojAssemblyReference.cache
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.csproj.CoreCompileInputs.cache
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.csproj.CopyComplete
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.dll
