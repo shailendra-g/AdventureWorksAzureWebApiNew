@@ -35,7 +35,7 @@ namespace ADVWebAPI.Controllers
             return dr.GetAllDepartments().ToList().Select(e => _modelFactory.Create(e)); ;
         }
 
-        // GET: api/Departments/5
+        
         [HttpPost]
         [Route("GetDepartment")]
         public IHttpActionResult GetDepartment(DepartmentRequestVM deptId)
