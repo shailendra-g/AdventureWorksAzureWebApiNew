@@ -97,7 +97,7 @@ namespace ADVWebAPI.Controllers
         }
         
         /// <summary>
-        /// Delete Dept
+        /// Delete Dept test
         /// </summary>
         /// <param name="dept"></param>
         /// <returns></returns>
