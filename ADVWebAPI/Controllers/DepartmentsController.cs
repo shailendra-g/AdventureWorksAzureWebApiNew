@@ -76,7 +76,6 @@ namespace ADVWebAPI.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
