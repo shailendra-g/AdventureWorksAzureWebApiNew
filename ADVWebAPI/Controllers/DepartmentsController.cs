@@ -93,6 +93,7 @@ namespace ADVWebAPI.Controllers
             db.Departments.Add(department);
             db.SaveChanges();
 
+
             //Need to check what this is
             return CreatedAtRoute("DefaultApi", new { id = department.DepartmentID }, department);
         }
