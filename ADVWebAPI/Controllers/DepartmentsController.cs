@@ -81,6 +81,11 @@ namespace ADVWebAPI.Controllers
         }
 
         // POST: api/Departments
+        /// <summary>
+        /// Post Department
+        /// </summary>
+        /// <param name="department"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("PostDepartment")]
         public IHttpActionResult PostDepartment(Department department)
