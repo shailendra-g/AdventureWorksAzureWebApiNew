@@ -96,6 +96,11 @@ namespace ADVWebAPI.Controllers
             return CreatedAtRoute("DefaultApi", new { id = department.DepartmentID }, department);
         }
         
+        /// <summary>
+        /// Delete Dept
+        /// </summary>
+        /// <param name="dept"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("DeleteDepartment")]
         public IHttpActionResult DeleteDepartment(DepartmentRequestVM dept)
