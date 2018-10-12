@@ -19,7 +19,6 @@ namespace ADVDataModel
         {
             this.EmployeeDepartmentHistories = new HashSet<EmployeeDepartmentHistory>();
             this.EmployeePayHistories = new HashSet<EmployeePayHistory>();
-            this.JobCandidates = new HashSet<JobCandidate>();
         }
     
         public int BusinessEntityID { get; set; }
@@ -42,7 +41,5 @@ namespace ADVDataModel
         public virtual ICollection<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeePayHistory> EmployeePayHistories { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobCandidate> JobCandidates { get; set; }
     }
 }

@@ -9,3 +9,15 @@ C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.csproj.CopyComplete
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.dll
 C:\Users\Shailu\source\repos\ADVDataModelEF\ADVDataModel\obj\Debug\ADVDataModel.pdb
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\ADVDataModel.dll.config
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\ADVDataModel.dll
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\ADVDataModel.pdb
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\EntityFramework.dll
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\EntityFramework.xml
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\obj\Debug\ADVDataModel.csproj.CoreCompileInputs.cache
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\obj\Debug\ADVDataModel.csproj.CopyComplete
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\obj\Debug\ADVDataModel.dll
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\obj\Debug\ADVDataModel.pdb
+C:\Users\Shailu\source\WebApiContinousDep\AdventureWorksAzureWebApiNew\ADVDataModel\obj\Debug\ADVDataModel.csprojAssemblyReference.cache

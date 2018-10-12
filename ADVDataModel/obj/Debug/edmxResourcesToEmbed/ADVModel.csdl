@@ -62,7 +62,6 @@
     <EntitySet Name="Employees" EntityType="ADV2017Model.Employee" />
     <EntitySet Name="EmployeeDepartmentHistories" EntityType="ADV2017Model.EmployeeDepartmentHistory" />
     <EntitySet Name="EmployeePayHistories" EntityType="ADV2017Model.EmployeePayHistory" />
-    <EntitySet Name="JobCandidates" EntityType="ADV2017Model.JobCandidate" />
     <EntitySet Name="Shifts" EntityType="ADV2017Model.Shift" />
     <AssociationSet Name="FK_EmployeeDepartmentHistory_Department_DepartmentID" Association="ADV2017Model.FK_EmployeeDepartmentHistory_Department_DepartmentID">
       <End Role="Department" EntitySet="Departments" />
@@ -76,14 +75,11 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="EmployeePayHistory" EntitySet="EmployeePayHistories" />
     </AssociationSet>
-    <AssociationSet Name="FK_JobCandidate_Employee_BusinessEntityID" Association="ADV2017Model.FK_JobCandidate_Employee_BusinessEntityID">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="JobCandidate" EntitySet="JobCandidates" />
-    </AssociationSet>
     <AssociationSet Name="FK_EmployeeDepartmentHistory_Shift_ShiftID" Association="ADV2017Model.FK_EmployeeDepartmentHistory_Shift_ShiftID">
       <End Role="Shift" EntitySet="Shifts" />
       <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistories" />
     </AssociationSet>
+    <EntitySet Name="Books" EntityType="ADV2017Model.Book" />
   </EntityContainer>
   <ComplexType Name="uspGetBillOfMaterials_Result">
     <Property Type="Int32" Name="ProductAssemblyID" Nullable="true" />
@@ -154,7 +150,6 @@
     <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="EmployeeDepartmentHistories" Relationship="ADV2017Model.FK_EmployeeDepartmentHistory_Employee_BusinessEntityID" FromRole="Employee" ToRole="EmployeeDepartmentHistory" />
     <NavigationProperty Name="EmployeePayHistories" Relationship="ADV2017Model.FK_EmployeePayHistory_Employee_BusinessEntityID" FromRole="Employee" ToRole="EmployeePayHistory" />
-    <NavigationProperty Name="JobCandidates" Relationship="ADV2017Model.FK_JobCandidate_Employee_BusinessEntityID" FromRole="Employee" ToRole="JobCandidate" />
   </EntityType>
   <EntityType Name="EmployeeDepartmentHistory">
     <Key>
@@ -184,16 +179,6 @@
     <Property Name="PayFrequency" Type="Byte" Nullable="false" />
     <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Employee" Relationship="ADV2017Model.FK_EmployeePayHistory_Employee_BusinessEntityID" FromRole="EmployeePayHistory" ToRole="Employee" />
-  </EntityType>
-  <EntityType Name="JobCandidate">
-    <Key>
-      <PropertyRef Name="JobCandidateID" />
-    </Key>
-    <Property Name="JobCandidateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BusinessEntityID" Type="Int32" />
-    <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Employee" Relationship="ADV2017Model.FK_JobCandidate_Employee_BusinessEntityID" FromRole="JobCandidate" ToRole="Employee" />
   </EntityType>
   <EntityType Name="Shift">
     <Key>
@@ -242,18 +227,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JobCandidate_Employee_BusinessEntityID">
-    <End Type="ADV2017Model.Employee" Role="Employee" Multiplicity="0..1" />
-    <End Type="ADV2017Model.JobCandidate" Role="JobCandidate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="BusinessEntityID" />
-      </Principal>
-      <Dependent Role="JobCandidate">
-        <PropertyRef Name="BusinessEntityID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_EmployeeDepartmentHistory_Shift_ShiftID">
     <End Type="ADV2017Model.Shift" Role="Shift" Multiplicity="1" />
     <End Type="ADV2017Model.EmployeeDepartmentHistory" Role="EmployeeDepartmentHistory" Multiplicity="*" />
@@ -266,4 +239,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PublishDate" Type="DateTime" Precision="0" />
+  </EntityType>
 </Schema>

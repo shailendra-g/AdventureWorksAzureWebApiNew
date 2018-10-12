@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ADV2017Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookName" Type="varchar" MaxLength="50" />
+    <Property Name="AuthorName" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PublishDate" Type="date" />
+  </EntityType>
   <EntityType Name="Department">
     <Key>
       <PropertyRef Name="DepartmentID" />
@@ -56,15 +66,6 @@ warning 6005: The data type 'hierarchyid' is currently not supported for the tar
     <Property Name="PayFrequency" Type="tinyint" Nullable="false" />
     <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="JobCandidate">
-    <Key>
-      <PropertyRef Name="JobCandidateID" />
-    </Key>
-    <Property Name="JobCandidateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BusinessEntityID" Type="int" />
-    <Property Name="Resume" Type="xml" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityType Name="Shift">
     <Key>
       <PropertyRef Name="ShiftID" />
@@ -99,18 +100,6 @@ warning 6005: The data type 'hierarchyid' is currently not supported for the tar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EmployeeDepartmentHistory_Shift_ShiftID">
-    <End Role="Shift" Type="Self.Shift" Multiplicity="1" />
-    <End Role="EmployeeDepartmentHistory" Type="Self.EmployeeDepartmentHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Shift">
-        <PropertyRef Name="ShiftID" />
-      </Principal>
-      <Dependent Role="EmployeeDepartmentHistory">
-        <PropertyRef Name="ShiftID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_EmployeePayHistory_Employee_BusinessEntityID">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="EmployeePayHistory" Type="Self.EmployeePayHistory" Multiplicity="*" />
@@ -123,114 +112,19 @@ warning 6005: The data type 'hierarchyid' is currently not supported for the tar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JobCandidate_Employee_BusinessEntityID">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-    <End Role="JobCandidate" Type="Self.JobCandidate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="BusinessEntityID" />
-      </Principal>
-      <Dependent Role="JobCandidate">
-        <PropertyRef Name="BusinessEntityID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Function Name="ufnGetAccountingEndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime" />
-  <Function Name="ufnGetAccountingStartDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime" />
-  <Function Name="ufnGetContactInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="PersonID" Type="int" Mode="In" />
-    <ReturnType>
-      <CollectionType>
-        <RowType>
-          <Property Name="PersonID" Type="int" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
-          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
-          <Property Name="BusinessEntityType" Type="nvarchar" MaxLength="50" />
-        </RowType>
-      </CollectionType>
-    </ReturnType>
-  </Function>
-  <Function Name="ufnGetDocumentStatusText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="Status" Type="tinyint" Mode="In" />
-  </Function>
-  <Function Name="ufnGetProductDealerPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
-    <Parameter Name="ProductID" Type="int" Mode="In" />
-    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
-  </Function>
-  <Function Name="ufnGetProductListPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
-    <Parameter Name="ProductID" Type="int" Mode="In" />
-    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
-  </Function>
-  <Function Name="ufnGetProductStandardCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
-    <Parameter Name="ProductID" Type="int" Mode="In" />
-    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
-  </Function>
-  <Function Name="ufnGetPurchaseOrderStatusText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="Status" Type="tinyint" Mode="In" />
-  </Function>
   <Function Name="ufnGetSalesOrderStatusText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
     <Parameter Name="Status" Type="tinyint" Mode="In" />
-  </Function>
-  <Function Name="ufnGetStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
-    <Parameter Name="ProductID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="ufnLeadingZeros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
-    <Parameter Name="Value" Type="int" Mode="In" />
-  </Function>
-  <Function Name="uspGetBillOfMaterials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="StartProductID" Type="int" Mode="In" />
-    <Parameter Name="CheckDate" Type="datetime" Mode="In" />
-  </Function>
-  <Function Name="uspGetEmployeeManagers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="uspGetManagerEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
-  </Function>
-  <Function Name="uspGetWhereUsedProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="StartProductID" Type="int" Mode="In" />
-    <Parameter Name="CheckDate" Type="datetime" Mode="In" />
   </Function>
   <Function Name="uspLogError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ErrorLogID" Type="int" Mode="InOut" />
   </Function>
   <Function Name="uspPrintError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="uspSearchCandidateResumes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="searchString" Type="nvarchar" Mode="In" />
-    <Parameter Name="useInflectional" Type="bit" Mode="In" />
-    <Parameter Name="useThesaurus" Type="bit" Mode="In" />
-    <Parameter Name="language" Type="int" Mode="In" />
-  </Function>
-  <Function Name="uspUpdateEmployeeHireInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HumanResources">
-    <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
-    <Parameter Name="JobTitle" Type="nvarchar" Mode="In" />
-    <Parameter Name="HireDate" Type="datetime" Mode="In" />
-    <Parameter Name="RateChangeDate" Type="datetime" Mode="In" />
-    <Parameter Name="Rate" Type="money" Mode="In" />
-    <Parameter Name="PayFrequency" Type="tinyint" Mode="In" />
-    <Parameter Name="CurrentFlag" Type="bit" Mode="In" />
-  </Function>
-  <Function Name="uspUpdateEmployeeLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HumanResources">
-    <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
-    <Parameter Name="LoginID" Type="nvarchar" Mode="In" />
-    <Parameter Name="JobTitle" Type="nvarchar" Mode="In" />
-    <Parameter Name="HireDate" Type="datetime" Mode="In" />
-    <Parameter Name="CurrentFlag" Type="bit" Mode="In" />
-  </Function>
-  <Function Name="uspUpdateEmployeePersonalInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="HumanResources">
-    <Parameter Name="BusinessEntityID" Type="int" Mode="In" />
-    <Parameter Name="NationalIDNumber" Type="nvarchar" Mode="In" />
-    <Parameter Name="BirthDate" Type="datetime" Mode="In" />
-    <Parameter Name="MaritalStatus" Type="nchar" Mode="In" />
-    <Parameter Name="Gender" Type="nchar" Mode="In" />
-  </Function>
   <EntityContainer Name="ADV2017ModelStoreContainer">
+    <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="HumanResources" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="HumanResources" store:Type="Tables" />
     <EntitySet Name="EmployeeDepartmentHistory" EntityType="Self.EmployeeDepartmentHistory" Schema="HumanResources" store:Type="Tables" />
     <EntitySet Name="EmployeePayHistory" EntityType="Self.EmployeePayHistory" Schema="HumanResources" store:Type="Tables" />
-    <EntitySet Name="JobCandidate" EntityType="Self.JobCandidate" Schema="HumanResources" store:Type="Tables" />
     <EntitySet Name="Shift" EntityType="Self.Shift" Schema="HumanResources" store:Type="Tables" />
     <AssociationSet Name="FK_EmployeeDepartmentHistory_Department_DepartmentID" Association="Self.FK_EmployeeDepartmentHistory_Department_DepartmentID">
       <End Role="Department" EntitySet="Department" />
@@ -240,17 +134,9 @@ warning 6005: The data type 'hierarchyid' is currently not supported for the tar
       <End Role="Employee" EntitySet="Employee" />
       <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistory" />
     </AssociationSet>
-    <AssociationSet Name="FK_EmployeeDepartmentHistory_Shift_ShiftID" Association="Self.FK_EmployeeDepartmentHistory_Shift_ShiftID">
-      <End Role="Shift" EntitySet="Shift" />
-      <End Role="EmployeeDepartmentHistory" EntitySet="EmployeeDepartmentHistory" />
-    </AssociationSet>
     <AssociationSet Name="FK_EmployeePayHistory_Employee_BusinessEntityID" Association="Self.FK_EmployeePayHistory_Employee_BusinessEntityID">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="EmployeePayHistory" EntitySet="EmployeePayHistory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_JobCandidate_Employee_BusinessEntityID" Association="Self.FK_JobCandidate_Employee_BusinessEntityID">
-      <End Role="Employee" EntitySet="Employee" />
-      <End Role="JobCandidate" EntitySet="JobCandidate" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

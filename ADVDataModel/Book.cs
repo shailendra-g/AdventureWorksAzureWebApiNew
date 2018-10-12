@@ -12,13 +12,12 @@ namespace ADVDataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class JobCandidate
+    public partial class Book
     {
-        public int JobCandidateID { get; set; }
-        public Nullable<int> BusinessEntityID { get; set; }
-        public string Resume { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
-    
-        public virtual Employee Employee { get; set; }
+        public int BookId { get; set; }
+        public string BookName { get; set; }
+        public string AuthorName { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<System.DateTime> PublishDate { get; set; }
     }
 }

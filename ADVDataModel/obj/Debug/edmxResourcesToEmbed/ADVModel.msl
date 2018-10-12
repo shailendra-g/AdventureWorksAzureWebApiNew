@@ -1,77 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ADV2017ModelStoreContainer" CdmEntityContainer="ADV2017Entities">
-    <FunctionImportMapping FunctionName="ADV2017Model.Store.ufnGetContactInformation" FunctionImportName="ufnGetContactInformation">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ADV2017Model.ufnGetContactInformation_Result">
-          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
-          <ScalarProperty Name="BusinessEntityType" ColumnName="BusinessEntityType" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspGetBillOfMaterials" FunctionName="ADV2017Model.Store.uspGetBillOfMaterials">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ADV2017Model.uspGetBillOfMaterials_Result">
-          <ScalarProperty Name="ProductAssemblyID" ColumnName="ProductAssemblyID" />
-          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
-          <ScalarProperty Name="ComponentDesc" ColumnName="ComponentDesc" />
-          <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
-          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
-          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
-          <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
-          <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspGetEmployeeManagers" FunctionName="ADV2017Model.Store.uspGetEmployeeManagers">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ADV2017Model.uspGetEmployeeManagers_Result">
-          <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
-          <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="OrganizationNode" ColumnName="OrganizationNode" />
-          <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
-          <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspGetManagerEmployees" FunctionName="ADV2017Model.Store.uspGetManagerEmployees">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ADV2017Model.uspGetManagerEmployees_Result">
-          <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
-          <ScalarProperty Name="OrganizationNode" ColumnName="OrganizationNode" />
-          <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
-          <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
-          <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="uspGetWhereUsedProductID" FunctionName="ADV2017Model.Store.uspGetWhereUsedProductID">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ADV2017Model.uspGetWhereUsedProductID_Result">
-          <ScalarProperty Name="ProductAssemblyID" ColumnName="ProductAssemblyID" />
-          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
-          <ScalarProperty Name="ComponentDesc" ColumnName="ComponentDesc" />
-          <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
-          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
-          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
-          <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
-          <ScalarProperty Name="RecursionLevel" ColumnName="RecursionLevel" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="uspLogError" FunctionName="ADV2017Model.Store.uspLogError" />
     <FunctionImportMapping FunctionImportName="uspPrintError" FunctionName="ADV2017Model.Store.uspPrintError" />
-    <FunctionImportMapping FunctionImportName="uspSearchCandidateResumes" FunctionName="ADV2017Model.Store.uspSearchCandidateResumes" />
-    <FunctionImportMapping FunctionImportName="uspUpdateEmployeeHireInfo" FunctionName="ADV2017Model.Store.uspUpdateEmployeeHireInfo" />
-    <FunctionImportMapping FunctionImportName="uspUpdateEmployeeLogin" FunctionName="ADV2017Model.Store.uspUpdateEmployeeLogin" />
-    <FunctionImportMapping FunctionImportName="uspUpdateEmployeePersonalInfo" FunctionName="ADV2017Model.Store.uspUpdateEmployeePersonalInfo" />
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="ADV2017Model.Department">
         <MappingFragment StoreEntitySet="Department">
@@ -126,16 +57,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="JobCandidates">
-      <EntityTypeMapping TypeName="ADV2017Model.JobCandidate">
-        <MappingFragment StoreEntitySet="JobCandidate">
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-          <ScalarProperty Name="Resume" ColumnName="Resume" />
-          <ScalarProperty Name="BusinessEntityID" ColumnName="BusinessEntityID" />
-          <ScalarProperty Name="JobCandidateID" ColumnName="JobCandidateID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Shifts">
       <EntityTypeMapping TypeName="ADV2017Model.Shift">
         <MappingFragment StoreEntitySet="Shift">
@@ -144,6 +65,17 @@
           <ScalarProperty Name="StartTime" ColumnName="StartTime" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="ADV2017Model.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -31,8 +31,8 @@ namespace ADVDataModel
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeDepartmentHistory> EmployeeDepartmentHistories { get; set; }
         public virtual DbSet<EmployeePayHistory> EmployeePayHistories { get; set; }
-        public virtual DbSet<JobCandidate> JobCandidates { get; set; }
         public virtual DbSet<Shift> Shifts { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
     
         [DbFunction("ADV2017Entities", "ufnGetContactInformation")]
         public virtual IQueryable<ufnGetContactInformation_Result> ufnGetContactInformation(Nullable<int> personID)

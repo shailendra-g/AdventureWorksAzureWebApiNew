@@ -4,18 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="96b858b154344811bf7fb84509b8cfab" Name="Diagram1" ZoomLevel="55">
+      <Diagram DiagramId="96b858b154344811bf7fb84509b8cfab" Name="Diagram1" ZoomLevel="108">
         <EntityTypeShape EntityType="ADV2017Model.Department" Width="1.5" PointX="3.75" PointY="6.625" />
         <EntityTypeShape EntityType="ADV2017Model.Employee" Width="1.5" PointX="0.75" PointY="4" />
         <EntityTypeShape EntityType="ADV2017Model.EmployeeDepartmentHistory" Width="1.5" PointX="6" PointY="4.875" />
         <EntityTypeShape EntityType="ADV2017Model.EmployeePayHistory" Width="1.5" PointX="3" PointY="3.75" />
-        <EntityTypeShape EntityType="ADV2017Model.JobCandidate" Width="1.5" PointX="3" PointY="10.125" />
         <EntityTypeShape EntityType="ADV2017Model.Shift" Width="1.5" PointX="3.75" PointY="0.75" />
         <AssociationConnector Association="ADV2017Model.FK_EmployeeDepartmentHistory_Department_DepartmentID" />
         <AssociationConnector Association="ADV2017Model.FK_EmployeeDepartmentHistory_Employee_BusinessEntityID" />
         <AssociationConnector Association="ADV2017Model.FK_EmployeePayHistory_Employee_BusinessEntityID" />
-        <AssociationConnector Association="ADV2017Model.FK_JobCandidate_Employee_BusinessEntityID" />
         <AssociationConnector Association="ADV2017Model.FK_EmployeeDepartmentHistory_Shift_ShiftID" />
+        <EntityTypeShape EntityType="ADV2017Model.Book" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
